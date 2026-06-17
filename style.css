@@ -1,0 +1,137 @@
+body{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+      /* background-color:#161625 */
+        /* background-color: #c9af98 */
+/* background-color:#3a4660; */
+background: linear-gradient(
+        to right,
+        #3a4660 50%,
+        #c9af98 50%
+    );
+
+}
+.container{
+   background-color: #F6A600;
+   height: 800px;
+   width: 455px;
+   border-radius: 21px;
+     display: flex;
+    flex-direction: column;
+       margin-top: 10px;
+}
+.Theame{
+       height: 40px;
+    background-color: #e99d00;
+    width: 90px;
+    border-radius: 14px;
+   align-self: center;
+
+    transition: transform 0.3s;
+}
+.circle{
+      height: 40px;
+    background-color: black;
+    width: 45px;
+     border-radius: 14px;
+     cursor: pointer;
+}
+.circle img{
+        height: 35px;
+    padding: 3px;
+    width: 38px;
+
+}
+.location{
+    margin-top: 10px;
+    height: 300px;
+}
+
+.weather-card{
+  
+    text-align: center;
+     margin-top: 10px;
+    height: 350px;
+    padding-top: 40px;
+ 
+}
+.weather-card img{
+    width: 70px;
+}
+.Favorites{
+        z-index: 1;
+    height: 97px;
+    background-color:#e99d00;
+    width: 90px;
+    border-radius: 132px;
+    align-self: center;
+    margin-bottom: -28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.Favorites button{
+    background-color: transparent;
+    border: none;
+}
+
+.Favorites img{
+     height: 40px;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+
+}
+.Favorites img:hover{
+    transform: scale(1.2);
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+   margin-top: auto;
+    color: white;
+  
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 84px;
+     background-color: rgb(0, 0, 0);
+     
+
+}
+
+.search-bar input{
+flex: 1 ;
+ background-color: rgb(0, 0, 0);
+ color: white;
+ border: 9px solid black;
+ width: 100%;
+ box-sizing: border-box;
+ 
+
+   
+   
+}
+.search-icon img{
+   height: 30px;
+   margin-left: 20px;
+   transition: transform 0.4s ease;
+}
+.search-icon img:hover{
+    transform: scale(1.2);
+}
+#Search-input::placeholder{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+   
+}
+.search-bar input:focus{
+    outline: none;
+    border: 9px solid black;
+    
+}
+.search-bar button{
+    background-color: transparent;
+    border: none;
+}
