@@ -110,15 +110,22 @@ let favoritesList = document.querySelector(".location");
 
 let dark = false;
 let currentCity = "";
+let timer;
 
 // load from localStorage safely
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 
-// 🌙 THEME TOGGLE
+// THEME TOGGLE
 circle.addEventListener("click", () => {
     dark = !dark;
-    circle.style.transform = dark ? "translateX(40px)" : "translateX(0)";
+     if (dark) {
+        circle.style.transform = "translateX(40px)";
+        document.body.classList.add("dark");
+    } else {
+        circle.style.transform = "translateX(0)";
+        document.body.classList.remove("dark");
+    }
 });
 
 
@@ -167,41 +174,60 @@ favBtn.addEventListener("click", () => {
         return;
     }
 
-    if (!favorites.includes(currentCity)) {
-
-        favorites.push(currentCity);
-
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-
-        renderFavorites();
-
-        alert("Added to favorites!");
-    } else {
-        alert("Already in favorites");
+    if (favorites.includes(currentCity)) {
+        alert("Already added!");
+        return;
     }
 
-});
+    favorites.push(currentCity);
 
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    renderFavorites();
+
+});
 // 🧾 RENDER FAVORITES
 function renderFavorites() {
+
     favoritesList.innerHTML = "";
 
     favorites.forEach((city) => {
+
         let div = document.createElement("div");
 
-        div.textContent = city;
+        div.classList.add("favorite-city");
+
+        div.innerHTML = `
+            <span>${city}</span>
+            <button class="remove-btn">X</button>
+        `;
+
+        // Click city → search weather
+        div.querySelector("span").addEventListener("click", () => {
+            searchInput.value = city;
+            getWeather(city);
+        });
+
+        // Remove button
+        div.querySelector(".remove-btn").addEventListener("click", () => {
+            removeFavorite(city);
+        });
 
         favoritesList.appendChild(div);
+
     });
+
 }
 
 // ❌ REMOVE FAVORITE
 function removeFavorite(city) {
+
     favorites = favorites.filter(item => item !== city);
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
     renderFavorites();
+
 }
 
 
@@ -214,3 +240,22 @@ function searchWeather(city) {
 
 // 🚀 INIT LOAD
 renderFavorites();
+
+function debounceSearch() {
+
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+
+        let city = searchInput.value.trim();
+
+        if (city) {
+            getWeather(city);
+        }
+
+    }, 2000);
+
+}
+
+
+searchInput.addEventListener("input", debounceSearch);

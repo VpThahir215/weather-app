@@ -3,14 +3,15 @@ body{
     justify-content:center;
     align-items: center;
       /* background-color:#161625 */
-        /* background-color: #c9af98 */
-/* background-color:#3a4660; */
 background: linear-gradient(
         to right,
         #3a4660 50%,
         #c9af98 50%
     );
 
+}
+body.dark{
+    background: #161625;
 }
 .container{
    background-color: #F6A600;
@@ -134,4 +135,9 @@ flex: 1 ;
 .search-bar button{
     background-color: transparent;
     border: none;
+}
+.remove-btn{
+        background-color: #ffffff;
+    border-radius: 30px;
+    height: 27px;
 }
