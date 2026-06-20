@@ -19,6 +19,6 @@ A responsive Weather Dashboard built using **HTML**, **CSS**, and **JavaScript**
 
 **THAHIR VP**
 
-GitHub: https://github.com/your-github-username
+GitHub:https://vpthahir215.github.io/weather-app/
 
 ---
